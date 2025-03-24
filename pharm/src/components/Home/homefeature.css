@@ -1,0 +1,41 @@
+.feature-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    padding: 60px 20px 60px 20px;
+   
+  }
+  
+  .feature-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    border:none;
+    border-radius: 8px;
+    background-color: #f0f8ff;
+    box-shadow: 0 4px 8px rgba(128, 128, 128, 0.3); 
+    transition: all 0.3s ease-in-out;
+  }
+  
+ 
+  .feature-icon {
+    font-size: 30px;
+    color: #142257;
+  }
+  .feature-text h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.9; 
+  }
+  
+  .feature-text p {
+    font-size: 12px;
+    color: #555;
+    margin: 0;
+  
+  }
+  
+  
