@@ -1,19 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { HiArrowNarrowRight, HiShoppingCart } from "react-icons/hi"; // Import the shopping cart icon
+import { HiShoppingCart, HiHeart, HiUser } from "react-icons/hi"; 
 import "./navbar.css";
 
 const Navbar = () => {
     const location = useLocation();
     const [scrolling, setScrolling] = useState(false);
+    const [showProfileMenu, setShowProfileMenu] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setScrolling(true);
-            } else {
-                setScrolling(false);
-            }
+            setScrolling(window.scrollY > 50);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -40,20 +37,26 @@ const Navbar = () => {
                     <li><Link to="/service">Service</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
                 </ul>
-                <div className="cart-emergency-container">
-                    <div className="addcart-icon">
-                        <Link to="/Cart" aria-label="Add to Cart">
-                            <HiShoppingCart size={24} className="addcart-icon-icon" />
+                <div className="icon-container">
+                    <div className="cart-icon"> 
+                        <Link to="/cart" aria-label="Add to Cart">
+                            <HiShoppingCart size={24} className="icon" />
                         </Link>
                     </div>
-                    <div className="emergency">
-                        <span className="emergency-text">
-                            Emergency <HiArrowNarrowRight className="arrow-icon" />
-                        </span>
-                        <a href="tel:+919876543210" className="call-btn">
-                            Call Us +91 9876543210
-                        </a>
+                    <div className="wishlist-icon"> 
+                        <Link to="/wishlist" aria-label="Wishlist">
+                            <HiHeart size={24} className="icon" />
+                        </Link>
                     </div>
+                    <div className="profile-icon" onClick={() => setShowProfileMenu(!showProfileMenu)}>
+                        <HiUser size={24} className="icon" />
+                    </div>
+                    {showProfileMenu && (
+                        <div className="profile-menu">
+                            <Link to="/login" onClick={() => setShowProfileMenu(false)}>Login</Link>
+                            <Link to="/register" onClick={() => setShowProfileMenu(false)}>Register</Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </nav>

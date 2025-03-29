@@ -21,6 +21,10 @@ import ProductBanner from "./components/Products/productbanner";
 import ProductDetail from "./components/Products/productdetail";
 import ProductArrivals from "./components/Products/productarrival";
 import Cart from "./components/Cart/Cart";
+import ProductDetailView from "./components/Products/ProductDetailView";
+import Wishlist from "./components/Whislist/Whislist";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 
 
 
@@ -31,11 +35,17 @@ function App() {
     <Routes>
 
     <Route path='/' element={<><HomeBanner/><HomeFeature/><HomeHealth /><HomeArrivals/><HomeAbout/><HomeNews/></>} />
+    
     <Route path="about" element={<><AboutBanner/><AboutDetail/><AboutTestimonial/><AboutContact/></>}/>
     <Route path="contact"element={<><ContactBanner/><ContactMap/><AboutContact/></>}/>
     <Route path="service"element={<><ServiceBanner/><ServiceList/><AboutContact/></>}/>
     <Route path="product"element={<><ProductBanner/><ProductDetail/><ProductArrivals/></>}/>
-    <Route path="Cart"element={<><Cart/></>}/>
+    <Route path="/product/:id" element={<ProductDetailView />} />
+    <Route path="/wishlist" element={<Wishlist />} />
+    <Route path="cart"element={<><Cart/></>}/>
+    <Route path="/login"element={<><Login/></>} />
+    <Route path="/register"element={<><Register/></>} />
+   
     
      
        

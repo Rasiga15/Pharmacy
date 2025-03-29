@@ -46,7 +46,7 @@ const HomeArrivals = () => {
           </div>
         ))}
       </div>
-      <a href="#" className="see-more">SEE MORE</a>
+      <a href="Product" className="see-more">SEE MORE</a>
     </div>
   );
 };

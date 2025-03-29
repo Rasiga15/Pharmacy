@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; 
 import "./homehealth.css";
 import { FaShoppingCart, FaRegHeart } from "react-icons/fa";
 
@@ -17,32 +18,103 @@ const categories = [
 ];
 
 const products = [
-  { id: 1, name: "LACTOGEN 2 REFILL 400GM", price: "₹485.00", img: "/images/health5.png" },
-  { id: 2, name: "NAN PRO 2 REFILL 400GM", price: "₹485.00", img: "/images/health6.png" },
-  { id: 3, name: "CERELAC 400GM", price: "₹485.00", img: "/images/health7.png" },
-  { id: 4, name: "CERELAC 400GM", price: "₹485.00", img: "/images/health8.png" },
+  { id: 1, name: "LACTOGEN 2 REFILL 400GM", price: "₹485.00", img: "/images/babycare1.webp" },
+  { id: 2, name: "NAN PRO 2 REFILL 400GM", price: "₹485.00", img: "/images/womencare1.webp" },
+  { id: 3, name: "CERELAC 400GM", price: "₹485.00", img: "/images/personalcare1.webp" },
+  { id: 4, name: "CERELAC 400GM", price: "₹485.00", img: "/images/babycare2.webp" },
 ];
 
 const HomeHealth = () => {
-  const [quantities, setQuantities] = useState(
-    products.reduce((acc, product) => {
-      acc[product.id] = 0; 
-      return acc;
-    }, {})
-  );
+  const navigate = useNavigate();
+  const [cart, setCart] = useState([]);
+  const [quantities, setQuantities] = useState({});
 
-  const updateQuantity = (id, increment) => {
-    setQuantities((prev) => ({
-      ...prev,
-      [id]: Math.max(prev[id] + (increment ? 1 : -1), 0), 
-    }));
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem('cart'));
+    if (storedCart) {
+      setCart(storedCart);
+      const initialQuantities = storedCart.reduce((acc, item) => {
+        acc[item.id] = item.quantity;
+        return acc;
+      }, {});
+      setQuantities(initialQuantities);
+    }
+  }, []);
+
+  const addToCart = (product, event) => {
+    event.stopPropagation();
+    if (quantities[product.id] < 10 || quantities[product.id] === undefined) {
+      const newCart = [...cart];
+      const existingItem = newCart.find((item) => item.id === product.id);
+      
+      if (existingItem) {
+        existingItem.quantity = Math.min(existingItem.quantity + 1, 10);
+      } else {
+        newCart.push({ ...product, quantity: 1 });
+      }
+
+      setCart(newCart);
+      const newQuantities = { ...quantities, [product.id]: (quantities[product.id] || 0) + 1 };
+      setQuantities(newQuantities);
+      localStorage.setItem('cart', JSON.stringify(newCart));
+      alert(`${product.name} added to cart!`);
+    } else {
+      alert("You cannot add more than 10 of this product.");
+    }
   };
+
+  const updateQuantity = (id, increment, event) => {
+    event.stopPropagation();
+    const newQuantities = { ...quantities };
+    const newQty = increment ? Math.min(newQuantities[id] + 1, 10) : Math.max(newQuantities[id] - 1, 0);
+    newQuantities[id] = newQty;
+    setQuantities(newQuantities);
+
+    const newCart = cart.map(item => {
+      if (item.id === id) {
+        return { ...item, quantity: newQty };
+      }
+      return item;
+    }).filter(item => item.quantity > 0);
+    
+    setCart(newCart);
+    localStorage.setItem('cart', JSON.stringify(newCart));
+  };
+
+  const [wishlist, setWishlist] = useState([]);
+
+  useEffect(() => {
+      const storedWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      setWishlist(storedWishlist);
+  }, []);
+  
+  const goToWishlist = (product, event) => {
+      event.stopPropagation();
+  
+      let updatedWishlist = [...wishlist];
+  
+      // Check if the product is already in the wishlist
+      const exists = updatedWishlist.find((item) => item.id === product.id);
+  
+      if (!exists) {
+          updatedWishlist.push(product);
+          setWishlist(updatedWishlist);
+          localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+          alert(`${product.name} added to wishlist!`);
+      } else {
+          alert("This product is already in the wishlist!");
+      }
+  
+      navigate('/wishlist'); 
+  };
+  
 
   return (
     <div className="health-care-container">
       <h4 className="health-h4">OUR PRODUCTS</h4>
-      <h2 className="health-h2">Browse Medicines & Health Product</h2>
+      <h2 className="health-h2">Browse Medicines & Health Products</h2>
 
+      {/* Health Conditions */}
       <div className="health-section">
         <h3 className="health-h3">Health Condition</h3>
         <div className="health-grid-container">
@@ -77,17 +149,21 @@ const HomeHealth = () => {
         <h3 className="pop-h3">Popular Products</h3>
         <div className="product-grid">
           {products.map((product) => (
-            <div className="product-item" key={product.id}>
+            <div
+              className="product-item"
+              key={product.id}
+              onClick={() => navigate(`/product/${product.id}`)}
+            >
               <div className="product-image">
                 <img src={product.img} alt={product.name} />
                 <div className="product-icons">
-                  <FaRegHeart className='p-heart-icon' />
-                  <FaShoppingCart className="p-cart-icon" />
-                </div>
-                <div className="quantity-controls">
-                  <button onClick={() => updateQuantity(product.id, false)} disabled={quantities[product.id] <= 0}>-</button>
-                  <span>{quantities[product.id]}</span>
-                  <button onClick={() => updateQuantity(product.id, true)}>+</button>
+                  <FaRegHeart 
+                  className="p-heart-icon" 
+                  onClick={(event) => goToWishlist(product, event)} />
+                  <FaShoppingCart
+                    className="p-cart-icon"
+                    onClick={(event) => addToCart(product, event)}
+                  />
                 </div>
               </div>
               <div className="pop-price">

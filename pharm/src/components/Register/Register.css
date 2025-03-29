@@ -1,0 +1,42 @@
+.reg-form-container {
+    max-width: 400px;
+    margin: 150px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.reg-form-group {
+    margin-bottom: 15px;
+}
+
+.reg-form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.reg-form-group input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.reg-button {
+    padding: 10px 15px;
+    background-color: #142257;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reg-button:hover {
+    background-color: #0f1a3b; 
+}
+
+.reg-error-message {
+    color: red;
+    font-size: 0.9em;
+    margin: 10px 0;
+}

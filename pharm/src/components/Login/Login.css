@@ -1,0 +1,47 @@
+.log-form-container {
+    max-width: 400px;
+    margin: 150px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.log-form-group {
+    margin-bottom: 15px;
+}
+
+.log-form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.log-form-group input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.log-button {
+    padding: 10px 15px;
+    background-color: #142257;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.log-button:hover {
+    background-color: #0f1a3b; 
+}
+
+.log-error-message {
+    color: red;
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+
+.forgot-password {
+    margin-top: 10px;
+    text-align: center; 
+}

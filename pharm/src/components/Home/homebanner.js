@@ -2,6 +2,7 @@ import React from "react";
 import { FaSearch} from "react-icons/fa";
 import { MdAddShoppingCart } from "react-icons/md";
 import "./homebanner.css";
+import { Link } from "react-router-dom";
 
 const HomeBanner = () => {
   return (
@@ -15,8 +16,10 @@ const HomeBanner = () => {
           Your path to well-being starts here, where every purchase is a prescription for savings.
         </p>
         <button className="shop-btn">
-        Start Shopping    <MdAddShoppingCart className="cart-icon" />
-        </button>
+  <Link to="Product" className="shop-link">
+    Start Shopping <MdAddShoppingCart className="home-cart-icon" />
+  </Link>
+</button>
       </div>
 
  
