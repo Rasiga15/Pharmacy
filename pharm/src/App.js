@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar"; 
 import Footer from "./components/footer";
 import "./App.css";
 import HomeBanner from "./components/Home/homebanner";
-import HomeFeature from "./components/Home/homefeature"
-import HomeHealth from "./components/Home/homehealth"
+import HomeFeature from "./components/Home/homefeature";
+import HomeHealth from "./components/Home/homehealth";
 import HomeArrivals from "./components/Home/homearrivals";
 import HomeNews from "./components/Home/homenews";
 import HomeAbout from "./components/Home/homeabout";
@@ -25,34 +25,54 @@ import ProductDetailView from "./components/Products/ProductDetailView";
 import Wishlist from "./components/Whislist/Whislist";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
-
-
+import Scroll from "./components/Scroll/Scroll"; 
 
 function App() {
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const addToCart = (product) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.id === product.id);
+      if (existingItem) {
+        return prevCart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: Math.min(item.quantity + 1, 10) }
+            : item
+        );
+      } else {
+        return [...prevCart, { ...product, quantity: 1 }];
+      }
+    });
+
+    alert(`${product.name} added to cart!`);
+  };
+
   return (
-    <Router>      <div>
+    <Router>
+      <div>
         <Navbar />
-    <Routes>
-
-    <Route path='/' element={<><HomeBanner/><HomeFeature/><HomeHealth /><HomeArrivals/><HomeAbout/><HomeNews/></>} />
-    
-    <Route path="about" element={<><AboutBanner/><AboutDetail/><AboutTestimonial/><AboutContact/></>}/>
-    <Route path="contact"element={<><ContactBanner/><ContactMap/><AboutContact/></>}/>
-    <Route path="service"element={<><ServiceBanner/><ServiceList/><AboutContact/></>}/>
-    <Route path="product"element={<><ProductBanner/><ProductDetail/><ProductArrivals/></>}/>
-    <Route path="/product/:id" element={<ProductDetailView />} />
-    <Route path="/wishlist" element={<Wishlist />} />
-    <Route path="cart"element={<><Cart/></>}/>
-    <Route path="/login"element={<><Login/></>} />
-    <Route path="/register"element={<><Register/></>} />
-   
-    
-     
-       
-
-    </Routes>
+        <Routes>
+          <Route path='/' element={<><HomeBanner/><HomeFeature/><HomeHealth /><HomeArrivals/><HomeAbout/><HomeNews/></>} />
+          <Route path="about" element={<><AboutBanner/><AboutDetail/><AboutTestimonial/><AboutContact/></>} />
+          <Route path="contact" element={<><ContactBanner/><ContactMap/><AboutContact/></>} />
+          <Route path="service" element={<><ServiceBanner/><ServiceList/><AboutContact/></>} />
+          <Route path="product" element={<><ProductBanner/><ProductDetail/><ProductArrivals/></>} />
+          <Route path="/product/:id" element={<ProductDetailView addToCart={addToCart} />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="cart" element={<><Cart /></>} />
+          <Route path="/login" element={<><Login/></>} />
+          <Route path="/register" element={<><Register/></>} />
+        </Routes>
+        <Scroll /> 
       </div>
-    <Footer/>
+      <Footer />
     </Router>
   );
 }

@@ -1,210 +1,202 @@
 .health-care-container {
-    max-width: 1200px;
-    margin: 35px auto;
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
-  .health-h4 {
-    color:#142257;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
-  
-  .health-h2 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 50px;
-    color:#080a13;
-  }
-  
-  .health-section {
-    margin-bottom: 30px;
-  }
-  
-  .health-h3 {
-    color: #142257;
-    text-align: left;
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-  
+  max-width: 1200px;
+  margin: 35px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.health-h4 {
+  color: #142257;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.health-h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: #080a13;
+}
+
+.health-section {
+  margin-bottom: 30px;
+}
+
+.health-h3 {
+  color: #142257;
+  text-align: left;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.health-grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  justify-content: center;
+}
+
+.health-grid-item {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  overflow: hidden;
+}
+
+.health-grid-h4 {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 35px 0px 0px 40px;
+}
+
+.health-grid-p, .subtitle-relief, .subtitle-care, .subtitle-wellness, .subtitle-family, .subtitle-medicines {
+  color: white;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.pophealth-section {
+  text-align: center;
+  padding: 40px 10px;
+  background-color: #fff;
+}
+
+.pop-h3 {
+  color: #142257;
+  text-align: left;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.product-item {
+  width: 250px;
+  background: #fff;
+  position: relative;
+  padding: 15px;
+  border: 1px solid rgb(245, 240, 240);
+}
+
+.product-item img {
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
+}
+
+.pop-price {
+  border-top: 1px solid rgb(245, 240, 240);
+  margin-top: 20px;
+}
+
+.pop-p {
+  text-align: left;
+  font-size: 12px;
+  padding-top: 4px;
+  color: #555;
+  font-weight: bold;
+}
+
+.pop-h5 {
+  text-align: left;
+  font-size: 14px;
+  color: #000;
+  margin-top: 10px;
+}
+
+.product-icons {
+  position: relative;
+  top: 30%;
+  left: 40%;
+  gap: 30px;
+  transition: opacity 0.3s ease;
+}
+
+.product-icons .p-heart-icon,
+.product-icons .p-cart-icon {
+  font-size: 35px;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.product-icons .p-heart-icon {
+  color: red;
+  border-color: red;
+}
+
+.product-icons .p-cart-icon {
+  color: gray;
+}
+
+.product-icons .p-heart-icon:hover,
+.product-icons .p-cart-icon:hover {
+  transform: scale(1.2);
+}
+
+
+@media (max-width: 1200px) {
   .health-grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    justify-content: center;
-  }
-  
-  .health-grid-item {
-    position: relative;
-    width: 100%;
-    height: 180px;
-    border-radius: 10px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    overflow: hidden;
-  }
-  
-
-  .health-grid-h4 {
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 35px 0px 0px 40px;
-  }
-  
-  .health-grid-p {
-    color: white;
-    font-size: 14px;
-    margin: 4px 0px 0px 30px;
-  }
-  .subtitle-relief {
-    color: white;
-    font-size: 14px;
-    margin: 4px 0px 0px 48px;
-  }
-  .subtitle-care {
-    color: white;
-    font-size: 14px;
-    margin: 4px 0px 0px -8px;
-  }
-
-  .subtitle-wellness {
-    color: white;
-    font-size: 14px;
-    margin: 4px 0px 0px 18px;
-  }
-
-  .subtitle-family {
-    color: white;
-    font-size: 14px;
-    margin: 4px 0px 0px 18px;
-  }
-
-  .subtitle-medicines
-   {
-    color: white;
-    font-size: 14px;
-    margin: 4px 0px 0px 18px;
-  }
-  /* popular products */
-
-  .pophealth-section {
-    text-align: center;
-    padding: 40px 10px;
-    background-color: #fff;
-  }
-  
-  .pop-h3 {
-    color: #142257;
-    text-align: left;
-    font-size: 18px;
-    margin-bottom: 15px;
+    grid-template-columns: repeat(3, 1fr);
   }
   
   .product-grid {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
-   
+    gap: 40px;
   }
-  
-  .product-item {
-    width: 250px;
-    background: #fff;
-    position: relative;
-    padding: 15px;
-   
-    border: 1px solid rgb(245, 240, 240) ;
-    /* box-shadow:1px 1px 1px 1px rgb(182, 170, 170) ; */
-    
-  }
-  .product-item img {
-    cursor: pointer;
-    width: 150px;
-    height: 150px;
-  
-  }
-  
-  .pop-price {
-    border-top: 1px solid rgb(245, 240, 240);
-    margin-top: 20px;
-  }
-  
-  .pop-p {
-    text-align: left;
-    font-size: 12px;
-    padding-top: 4px;
-    color: #555;
-    font-weight: bold;
-  }
-  
-  .pop-h5 {
+}
 
-    text-align: left;
-    font-size: 14px;
-    color: #000;
-    margin-top: 10px;
+@media (max-width: 768px) {
+  .health-grid-container {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .product-icons {
-    position: relative;
-    top: 30%;
-    left:40%;
-    /* transform: translate(-50%, -50%); */
-    /* display: flex; */
-    gap: 30px;
-    /* opacity: 0; */
-    transition: opacity 0.3s ease;
+
+  .product-grid {
+    gap: 30px; 
   }
-  
-  /* .product-item:hover .product-icons {
-    opacity: 1;
+
+  .product-item {
+    width: 100%; 
+    padding: 10px; 
   }
-   */
+
+  .health-h2 {
+    font-size: 24px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .health-h2, .pop-h3 {
+    font-size: 20px; 
+  }
+
+  .health-h3 {
+    font-size: 16px; 
+  }
+
+  .product-item img {
+    width: 100%; 
+    height: auto; 
+  }
+
+  .pop-p {
+    font-size: 10px; 
+  }
+
   .product-icons .p-heart-icon,
   .product-icons .p-cart-icon {
-    font-size: 35px;
-    /* background: rgba(160, 151, 151, 0.8); */
-    padding: 8px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    font-size: 30px; 
   }
-  
-  .product-icons .p-heart-icon {
-    color: red;
-    border-color: red;
-  }
-  
-  .product-icons .p-cart-icon {
-    color:gray;
-  }
-  
-  .product-icons .p-heart-icon:hover,
-  .product-icons .p-cart-icon:hover {
-    transform: scale(1.2);
-  }
+}
 
-  /* .quantity-controls {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    max-width: 120px;
-    bottom: 85px;
-    
-  }
-  
-  .quantity-controls button {
-    cursor: pointer;
-    padding: 3px 10px;
-    margin: 0 5px;
-  }
-  
-  .quantity-controls span {
-    min-width: 30px;
-    text-align: center;
-  }
-   */

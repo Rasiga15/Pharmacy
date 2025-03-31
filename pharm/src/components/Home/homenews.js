@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; 
 import "./homenews.css";
 
 const HomeNews = () => {
@@ -50,7 +51,9 @@ const HomeNews = () => {
               spotlight feature. From cardiology to pediatrics, we share
               in-depth articles written by our expert physicians.
             </p>
-            <button className="read-more">Read More</button>
+            <Link to="/service"> 
+              <button className="read-more">Read More</button>
+            </Link>
           </div>
         </div>
         <div className="other-news">
@@ -62,7 +65,9 @@ const HomeNews = () => {
                 <span className="date">📅 {blog.date}</span>
                 <h4 className="o-news-h4">{blog.title}</h4>
                 <p className="news-p">{blog.description}</p>
-                <button className="read-more">Read More</button>
+                <Link to="/service"> 
+                  <button className="read-more">Read More</button>
+                </Link>
               </div>
             </div>
           ))}

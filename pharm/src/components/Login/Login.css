@@ -1,47 +1,91 @@
 .log-form-container {
-    max-width: 400px;
-    margin: 150px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px; 
+    margin: 150px auto; 
+    padding: 20px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    background-color: #f9f9f9; 
 }
-
+.log-h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
 .log-form-group {
     margin-bottom: 15px;
 }
 
 .log-form-group label {
     display: block;
-    margin-bottom: 5px;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px; 
 }
 
 .log-form-group input {
-    width: 100%;
+    width: 100%; 
     padding: 10px;
-    box-sizing: border-box;
+    box-sizing: border-box; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
 }
 
+
 .log-button {
-    padding: 10px 15px;
-    background-color: #142257;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 10px 15px; 
+    background-color: #142257; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    width: 100%; 
+    font-weight: bold;
+    transition: background-color 0.3s ease; 
 }
 
 .log-button:hover {
-    background-color: #0f1a3b; 
+    background-color: #0f1a3b;
 }
+
 
 .log-error-message {
-    color: red;
-    font-size: 0.9em;
-    margin: 10px 0;
+    color: red; 
+    font-size: 0.9em; 
+    margin: 10px 0; 
 }
 
+
 .forgot-password {
-    margin-top: 10px;
+    margin-top: 20px; 
     text-align: center; 
+}
+
+.forgot-password a {
+    color:#142257; 
+    text-decoration: none; 
+    font-weight: 600; 
+}
+
+.forgot-password a:hover {
+    text-decoration: underline; 
+}
+
+.login-link-container {
+    margin-top: 20px; 
+    text-align: center; 
+}
+
+.login-link-container p {
+    margin: 0; 
+}
+
+.login-link-container a {
+    color: #142257; 
+    text-decoration: none; 
+    font-weight: 600; 
+}
+
+.login-link-container a:hover {
+    text-decoration: underline; 
 }

@@ -254,3 +254,58 @@
   
 
   
+
+
+
+
+  @media (max-width: 768px) {
+    .about-container, .service-container, .offer-container {
+        flex-direction: column; 
+        gap: 40px; 
+    }
+  
+    .about-btn, .explore-btn, .offer-btn {
+        /* width: 100%;  */
+        padding: 15px;
+       
+    }
+  
+    .about-image, .doctor-image {
+        width: 100%;
+        max-width: 300px; 
+    }
+  
+    .service-text, .a-content {
+        max-width: 100%; 
+    }
+  
+    .a-content h2, .service-text h2, .offer-title {
+        font-size: 32px; 
+    }
+  
+    .service-text .e-b, .a-content .about-c-p {
+        font-size: 18px; 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-container, .service-container, .offer-container {
+        gap: 20px; 
+    }
+  
+    .about-btn, .explore-btn, .offer-btn {
+        padding: 10px; 
+    }
+  
+    .about-image, .doctor-image {
+        max-width: 240px; 
+    }
+  
+    .a-content h2, .service-text h2, .offer-title {
+        font-size: 28px; 
+    }
+  
+    .a-content p, .offer-description, .service-text p {
+        font-size: 14px; 
+    }
+  }

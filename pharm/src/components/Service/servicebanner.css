@@ -65,6 +65,33 @@
   }
   
   
+  @media (max-width: 768px) {
+    .service-banner {
+      height: 200px; 
+    }
+    .service-banner h1 {
+      font-size: 28px; 
+    }
+    .service-banner .s-overlay {
+      padding: 35px; 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .service-banner {
+      height: 150px; 
+    }
+    .service-banner h1 {
+      font-size: 24px; 
+    }
+    .service-banner h5 {
+      font-size: 14px; 
+    }
+    .service-banner .s-overlay {
+      padding: 35px; 
+      align-items: center; 
+    }
+  }
   
   
   

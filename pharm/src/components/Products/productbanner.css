@@ -64,6 +64,34 @@
   
   }
   
+   
+  @media (max-width: 768px) {
+    .product-banner {
+      height: 200px; 
+    }
+    .product-banner h1 {
+      font-size: 28px; 
+    }
+    .product-banner .product-overlay {
+      padding: 35px; 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .product-banner {
+      height: 150px; 
+    }
+    .product-banner h1 {
+      font-size: 24px; 
+    }
+    .product-banner h5 {
+      font-size: 14px; 
+    }
+    .product-banner .product-overlay {
+      padding: 35px; 
+      align-items: center; 
+    }
+  }
   
   
   

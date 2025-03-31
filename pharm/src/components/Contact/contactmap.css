@@ -1,15 +1,35 @@
 .map-container {
-  text-align: center;
-  padding: 20px;
-  border-radius: 8px;
-  width: 90%;
-  margin: 80px auto;
+  text-align: center; 
+  padding: 20px; 
+  border-radius: 8px; 
+  width: 90%; 
+  margin: 80px auto; 
+}
+
+.map-container iframe {
+  width: 100%; 
+  height: 480px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+@media (max-width: 768px) {
+  .map-container {
+    margin: 40px auto; 
   }
-  
+
   .map-container iframe {
-    width: 100%;
-    height: 480px;
-    
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 360px; 
   }
-  
+}
+
+@media (max-width: 480px) {
+  .map-container {
+    margin: 20px auto; 
+    padding: 10px; 
+  }
+
+  .map-container iframe {
+    height: 240px; 
+  }
+}

@@ -93,3 +93,41 @@ margin-bottom: 8px;
   font-size: 45px;
   font-weight: bold;
 }
+
+
+
+
+@media (max-width: 768px) {
+  .service-list {
+    padding: 50px 15px; 
+  }
+
+  .service-card {
+    height: auto; 
+  }
+
+  .floating-icon {
+    bottom: 120px; 
+    right: 10px;   
+  }
+}
+
+@media (max-width: 480px) {
+  .service-list {
+    padding: 30px 10px;
+  }
+
+  .s-c-h3 {
+    font-size: 20px; 
+  }
+
+  .s-c-p {
+    font-size: 12px; 
+  }
+
+  .floating-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 30px; 
+  }
+}

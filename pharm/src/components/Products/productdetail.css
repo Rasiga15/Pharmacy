@@ -1,180 +1,156 @@
 .product-health-container {
-    max-width: 1200px;
-    margin: 35px auto;
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
-  .product-health-h4 {
-    color:#142257;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
-  
-  .product-health-h2 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 50px;
-    color:#080a13;
-  }
-  
-  .product-health-section {
-    margin-bottom: 30px;
-  }
-  
-  .product-health-h3 {
-    color: #142257;
-    text-align: left;
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-  
-  .product-health-grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    justify-content: center;
-  }
-  
-  .product-health-grid-item {
-    position: relative;
-    width: 100%;
-    height: 180px;
-    border-radius: 10px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    overflow: hidden;
-  }
-  
+  max-width: 1200px;
+  margin: 35px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
 
-  .product-health-grid-h4 {
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 35px 0px 0px 40px;
-  }
-  
-  .product-health-grid-p {
-    color: white;
-    font-size: 14px;
-    margin: 4px 0px 0px 30px;
-  }
-  
-  /* popular products */
+.product-health-h4 {
+  color: #142257;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
 
-  .product-pophealth-section {
-    text-align: center;
-    padding: 40px 10px;
-    background-color: #fff;
-  }
-  
-  .product-pop-h3 {
-    color: #142257;
-    text-align: left;
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-  
-  .product-pop-grid {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
-  }
-  
-  .product-pop-item {
-    position: relative;
-    width: 250px;
-    background: #fff;
-    border: 1px solid rgb(245, 240, 240) ;
-    padding: 15px;
-    
-  }
-  .product-pop-item img {
-    width: 150px;
-    height: 150px;
-  
-  }
-  
-  .product-pop-price {
-    border-top: 1px solid rgb(245, 240, 240);
-    margin-top: 20px;
-  }
-  
-  .product-pop-p {
-    text-align: left;
-    font-size: 12px;
-    padding-top: 4px;
-    color: #555;
-    font-weight: bold;
-  }
-  
-  .product-pop-h5 {
+.product-health-h2 {
+  font-size: 28px; 
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: #080a13;
+}
 
-    text-align: left;
-    font-size: 14px;
-    color: #000;
-    margin-top: 10px;
-  }
-  
+.product-health-section {
+  margin-bottom: 30px;
+}
 
-  .filters {
-    /* position: sticky;
-    top: 50px;
-    z-index: 10; */
-    display: flex;
-    justify-content: center; 
-    padding: 20px; 
-    /* background-color: #f8f8f8; 
-    border: 1px solid #ddd;  */
-    border-radius: 8px; 
-    gap:15px;
-  }
-  
-  .filters button {
-    padding: 10px 15px; 
-    cursor: pointer;
-    background-color: #f8f8f8; 
-    border: 1px solid #ddd; 
-    color: #142257; 
-    font-size: 18px;
-    font-weight: 600;
-    border: none; 
-    border-radius: 4px; 
-    transition: background-color 0.3s; 
-  }
-  
-  .filters button:hover {
-    background-color: #142257; 
-    color: white;
-  }
-  
-  
-/* .filters.scrolled {
-  background-color: blue; 
-  color: white; 
-} */
+.product-health-h3 {
+  color: #142257;
+  text-align: left;
+  font-size: 18px; 
+  margin-bottom: 15px;
+}
+
+.product-health-grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  justify-content: center;
+}
+
+.product-health-grid-item {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  overflow: hidden;
+}
+
+.product-health-grid-h4 {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 35px 0px 0px 40px;
+}
+
+.product-health-grid-p {
+  color: white;
+  font-size: 14px;
+  margin: 4px 0px 0px 30px;
+}
+
+.product-pophealth-section {
+  text-align: center;
+  padding: 40px 10px;
+  background-color: #fff;
+}
+
+.product-pop-h3 {
+  color: #142257;
+  text-align: left;
+  font-size: 18px; 
+  margin-bottom: 15px;
+}
+
+.product-pop-grid {
+  display: flex;
+  justify-content: center;
+  gap: 60px; 
+  flex-wrap: wrap;
+}
+
+.product-pop-item {
+  position: relative;
+  width: 250px; 
+  background: #fff;
+  border: 1px solid rgb(245, 240, 240);
+  padding: 15px;
+}
+
+.product-pop-item img {
+  width: 150px; 
+  height: 150px;
+}
+
+.product-pop-price {
+  border-top: 1px solid rgb(245, 240, 240);
+  margin-top: 20px;
+}
+
+.product-pop-p {
+  text-align: left;
+  font-size: 12px; 
+  padding-top: 4px;
+  color: #555;
+  font-weight: bold;
+}
+
+.product-pop-h5 {
+  text-align: left;
+  font-size: 14px; 
+  color: #000;
+  margin-top: 10px;
+}
+
+.filters {
+  display: flex;
+  justify-content: center; 
+  padding: 20px; 
+  border-radius: 8px; 
+  gap: 15px;
+}
+
+.filters button {
+  padding: 10px 15px; 
+  cursor: pointer;
+  background-color: #f8f8f8; 
+  border: 1px solid #ddd; 
+  color: #142257; 
+  font-size: 18px; 
+  font-weight: 600;
+  border: none; 
+  border-radius: 4px; 
+  transition: background-color 0.3s; 
+}
+
+.filters button:hover {
+  background-color: #142257; 
+  color: white;
+}
 
 .p-product-icons {
   position: relative;
   top: 2%;
-  left:40%;
-  /* transform: translate(-50%, -50%); */
-  /* display: flex; */
+  left: 40%;
   gap: 30px;
-  /* opacity: 0; */
   transition: opacity 0.3s ease;
 }
 
-/* .product-item:hover .product-icons {
-  opacity: 1;
-}
- */
 .p-product-icons .product-heart-icon,
 .p-product-icons .product-cart-icon {
   font-size: 35px;
-  /* background: rgba(160, 151, 151, 0.8); */
   padding: 8px;
   border-radius: 50%;
   cursor: pointer;
@@ -187,7 +163,7 @@
 }
 
 .p-product-icons .product-cart-icon {
-  color:gray;
+  color: gray;
 }
 
 .p-product-icons .product-heart-icon:hover,
@@ -196,13 +172,11 @@
 }
 
 .product-quantity-controls {
- 
   position: absolute;
   display: flex;
   align-items: center;
   max-width: 120px;
   bottom: 85px;
-  /* background-color: #555; */
 }
 
 .product-quantity-controls button {
@@ -216,3 +190,70 @@
   text-align: center;
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .product-health-grid-container {
+      grid-template-columns: repeat(2, 1fr); 
+  }
+
+  .product-pop-grid {
+      gap: 30px; 
+  }
+
+  .product-pop-item {
+      width: 100%; 
+      padding: 10px; 
+  }
+
+  .product-health-h2 {
+      font-size: 24px; 
+  }
+
+  .filters {
+      flex-direction: column; 
+      align-items: center;    
+      padding: 10px 0; 
+  }
+
+  .filters button {
+      width: 100%; 
+      font-size: 16px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .product-health-h2 {
+      font-size: 20px; 
+  }
+
+  .product-health-h3 {
+      font-size: 16px; 
+  }
+
+  .product-pop-h3 {
+      font-size: 16px; 
+  }
+
+  .product-health-grid-container {
+      grid-template-columns: 1fr;  
+  }
+
+  .product-pop-item img {
+      width: 100%; 
+      height: auto; 
+  }
+
+  .product-pop-p {
+      font-size: 10px; 
+  }
+
+  .filters button {
+      font-size: 14px; 
+      padding: 8px; 
+  }
+
+  .p-product-icons .product-heart-icon,
+  .p-product-icons .product-cart-icon {
+      font-size: 30px; 
+  }
+}

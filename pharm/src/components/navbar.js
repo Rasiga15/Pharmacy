@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HiShoppingCart, HiHeart, HiUser } from "react-icons/hi"; 
+import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";  
 import "./navbar.css";
 
 const Navbar = () => {
     const location = useLocation();
     const [scrolling, setScrolling] = useState(false);
     const [showProfileMenu, setShowProfileMenu] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -27,16 +29,28 @@ const Navbar = () => {
     return (
         <nav className="nav-container" style={navbarStyle}>
             <div className="nav-content">
+               
                 <div className="logo">
-                    <img src="/images/logo.png" alt="Logo" />
+                    <Link to="/">
+                        <img src="/images/logo.png" alt="Logo" />
+                    </Link>
                 </div>
-                <ul className="nav-links">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/product">Product</Link></li>
-                    <li><Link to="/service">Service</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
+
+              
+                <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+                    {menuOpen ? <HiOutlineX size={30} /> : <HiOutlineMenu size={30} />}
+                </div>
+
+           
+                <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+                    <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+                    <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
+                    <li><Link to="/product" onClick={() => setMenuOpen(false)}>Product</Link></li>
+                    <li><Link to="/service" onClick={() => setMenuOpen(false)}>Service</Link></li>
+                    <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
                 </ul>
+
+                {/* Icons */}
                 <div className="icon-container">
                     <div className="cart-icon"> 
                         <Link to="/cart" aria-label="Add to Cart">
@@ -51,6 +65,7 @@ const Navbar = () => {
                     <div className="profile-icon" onClick={() => setShowProfileMenu(!showProfileMenu)}>
                         <HiUser size={24} className="icon" />
                     </div>
+                    
                     {showProfileMenu && (
                         <div className="profile-menu">
                             <Link to="/login" onClick={() => setShowProfileMenu(false)}>Login</Link>

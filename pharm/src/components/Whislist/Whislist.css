@@ -76,3 +76,60 @@
     text-align: center;
     margin-top: 20px;
 }
+
+
+
+
+@media (max-width: 768px) {
+    .wishlist-title {
+        font-size: 20px; 
+    }
+
+    .wishlist-item-name {
+        font-size: 14px; 
+    }
+
+    .wishlist-item-price {
+        font-size: 12px; 
+    }
+
+    .whitelist-remove-btn {
+        font-size: 18px; 
+    }
+
+    .wishlist-table th,
+    .wishlist-table td {
+        padding: 8px; 
+    }
+
+    .wishlist-table {
+        width:460px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .wishlist-title {
+        font-size: 18px;
+    }
+
+    .wishlist-item-img {
+        width: 40px; 
+        height: 40px;
+    }
+
+    .wishlist-item-name {
+        font-size: 12px; 
+    }
+
+    .wishlist-item-price {
+        font-size: 10px; 
+    }
+
+    .whitelist-remove-btn {
+        font-size: 16px;
+    }
+
+    .no-items-message {
+        font-size: 16px; 
+    }
+}

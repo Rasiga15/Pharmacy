@@ -5,34 +5,67 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9; 
 }
-
+.reg-h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
 .reg-form-group {
     margin-bottom: 15px;
 }
 
 .reg-form-group label {
     display: block;
-    margin-bottom: 5px;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px; 
 }
 
 .reg-form-group input {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
 }
 
 .reg-button {
-    padding: 10px 15px;
-    background-color: #142257;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 10px 15px; 
+    background-color: #142257; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    width: 100%; 
+    font-weight: bold;
+    transition: background-color 0.3s ease; 
 }
 
 .reg-button:hover {
     background-color: #0f1a3b; 
+}
+
+.register-link-container {
+    margin-top: 20px; 
+    text-align: center; 
+}
+
+.register-link-container p {
+    margin: 0; 
+    color: #142257; 
+    font-weight: 600; 
+}
+
+.register-link-container a {
+    color: #142257; 
+    text-decoration: none; 
+    font-weight: 600; 
+}
+
+.register-link-container a:hover {
+    text-decoration: underline; 
 }
 
 .reg-error-message {

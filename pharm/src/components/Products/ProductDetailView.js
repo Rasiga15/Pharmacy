@@ -41,6 +41,7 @@ const ProductDetailView = ({ addToCart }) => {
         <h3 className="product-detail-price">{product.price}</h3>
         <div className="product-detail-buttons">
         <button className="add-to-cart-btn" onClick={() => addToCart(product)}>Add to Cart</button>
+
         <button className="order-now-btn">Order Now</button>
         </div>
       </div>

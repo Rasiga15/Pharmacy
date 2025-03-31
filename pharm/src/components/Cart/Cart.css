@@ -105,11 +105,12 @@
 .checkout-btn:hover {
   background-color: #024d9c;
 }
+
 .cart-items-p{
-    color: #333;
-    font-size: 18px;
-    text-align: center;
-    margin-top: 10px;
+  color: #333;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .remove-btn {
@@ -153,4 +154,29 @@
 .total-price {
   color: #d9534f; 
   font-size: 16px;
+}
+
+
+@media (max-width: 768px) {
+ .cart-layout {
+     flex-direction: column; 
+ }
+ .cart-items {
+     margin-right: 0; 
+ }
+ .order-summary {
+     border-left-width: 0; 
+ }
+ 
+ .cart-table, .order-table {
+     width:auto; 
+ }
+ 
+ .item-name, .item-price, .summary-title{
+     font-size:15px; 
+ }
+ 
+ .cart-items-p{
+     font-size:16px; 
+ }
 }

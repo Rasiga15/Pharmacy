@@ -13,35 +13,35 @@ const services = [
     title: "24/7 Medicine Availability",
     description:
       "We ensure essential medicines are available around the clock for emergencies.",
-    image: "/images/servicedetail.png",
+    image: "/images/medicineavailability.avif",
     isHighlighted: false,
   },
   {
     title: "Home Delivery",
     description:
       "Order your medicines online and get them delivered to your doorstep.",
-    image: "/images/servicedetail.png",
+    image: "/images/homedelivery.png",
     isHighlighted: false,
   },
   {
     title: "Doctor Consultation",
     description:
       "Book an appointment with our expert doctors for personalized guidance.",
-    image: "/images/servicedetail.png",
+    image: "/images/doctorconsultation.jpg",
     isHighlighted: false,
   },
   {
     title: "Vaccination Services",
     description:
       "We offer flu shots, COVID-19 vaccines, and other essential vaccinations.",
-    image: "/images/servicedetail.png",
+    image: "/images/vaccination.jpg",
     isHighlighted: false,
   },
   {
     title: "Lab Test Assistance",
     description:
       "Get assistance for lab tests like blood tests, urine tests, and more at our pharmacy.",
-    image: "/images/servicedetail.png",
+    image: "/images/labtest.jpg",
     isHighlighted: false,
   },
 ];

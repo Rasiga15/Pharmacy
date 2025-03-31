@@ -102,3 +102,45 @@
 .swiper-pagination {
     margin-bottom: 50px !important; 
 }
+
+
+
+/* @media (max-width: 768px) {
+    .testimonial-slide {
+        height: 280px; 
+    }
+
+    .testimonial-content {
+        max-width: 90%; 
+        font-size: 16px;
+    }
+
+    .testimonial-slide::before {
+        font-size: 3rem; 
+    }
+
+    .testimonial-line {
+        right: 50px;
+        width: 150px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-slide {
+        height: 220px;
+    }
+
+    .testimonial-content {
+        max-width: 100%; 
+        font-size: 14px; 
+    }
+
+    .testimonial-slide::before {
+        font-size: 2.5rem; 
+    }
+
+    .testimonial-line {
+        right: 20px; 
+        width: 100px; 
+    }
+} */

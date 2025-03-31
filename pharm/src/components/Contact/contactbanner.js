@@ -7,7 +7,7 @@ const ContactBanner = () => {
       <section className="contact-banner">
       
         <div className="c-overlay">
-          <h5>Home / Cbout Us</h5>
+          <h5>Home / Contact Us</h5>
           <h1>CONTACT US</h1>
         </div>
       </section>
