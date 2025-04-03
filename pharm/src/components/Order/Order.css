@@ -1,0 +1,122 @@
+.order-page {
+    padding: 20px;
+    max-width: 800px;
+    margin: 150px auto; 
+  
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.order-p-h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #142257;
+}
+
+.order-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; 
+}
+
+.order-billing-section, .order-product-section {
+    flex: 1; 
+    margin-right: 20px; 
+}
+
+.order-billing-section:last-child {
+    margin-right: 0; 
+}
+
+.order-p-h3 {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.order-table td,
+.order-table th {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.order-table th {
+    background-color: #f3f3f3;
+}
+
+.o-table-header {
+    font-size: 18px;
+    color: #333;
+}
+
+.o-table-row {
+    background-color: #fff;
+}
+
+.o-product-name {
+    font-weight: 500;
+}
+
+.o-product-quantity,
+.o-product-price {
+    text-align: center;
+}
+
+.o-total-label {
+    font-weight: bold;
+}
+
+.o-total-amount {
+    font-weight: bold;
+    color: #d9534f; 
+    text-align: center;
+}
+
+.order-table-label {
+    font-weight: bold;
+}
+
+
+.o-product-image {
+    width: 60px; 
+    height: auto; 
+}
+
+.order-product-image {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+.order-confirmation-message {
+    background-color: #dff0d8; 
+    color: #3c763d;          
+    padding: 15px;           
+    border-radius: 5px;    
+    text-align: center;      
+    margin-bottom: 20px;    
+}
+
+.confirmation-text {
+    font-size: 18px;          
+    font-weight: bold;       
+}
+
+.close-button {
+    background: none;       
+    border: none;            
+    cursor: pointer;         
+    color: #3c763d;         
+    font-size: 18px;         
+    position: absolute;       
+    right: 10px;             
+    top: 10px;              
+}

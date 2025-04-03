@@ -1,0 +1,210 @@
+
+.check-checkout-page {
+    padding: 20px;
+    max-width: 800px;
+    margin: 150px auto; 
+    font-family: Arial, sans-serif; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    background-color: #f9f9f9; 
+}
+.check-checkout-title{
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #142257;
+   
+
+}
+.check-checkout-layout {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; 
+}
+
+.check-billing-section {
+    flex: 1; 
+    margin-right: 20px; 
+}
+
+.check-summary-section {
+    flex: 1; 
+}
+
+
+.check-billing-title {
+    font-size: 18px;
+    color: #555; 
+    margin-bottom: 35px; 
+}
+
+.check-billing-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.check-form-group {
+    margin-bottom: 20px;
+}
+
+.check-form-group label {
+    margin-bottom: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333; 
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+}
+
+.check-submit-btn {
+    padding: 10px 15px; 
+    background-color: #142257; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    width: 100%; 
+    font-weight: bold;
+    transition: background-color 0.3s ease; 
+}
+
+.check-submit-btn:hover {
+    background-color: #024d9c; 
+}
+
+
+.check-summary-title {
+    font-size: 18px;
+    color: #333; 
+    margin-bottom: 10px;
+}
+
+.check-order-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.check-order-summary-table th,
+.check-order-summary-table td {
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    text-align: left; 
+}
+
+.check-product-image {
+    width: 50px; 
+    height: auto;
+    border-radius: 5px; 
+}
+
+.check-cart-items-p {
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+.check-item-name {
+    font-size: 14px;
+    font-weight:500;
+  }
+  
+  .check-item-price {
+    font-size: 14px;
+    color: #555;
+  }
+  .check-total-price {
+    color: #d9534f; 
+    font-size: 16px;
+  }
+  .check-payment-title{
+    font-size: 18px;
+    color: #333; 
+    margin-bottom: 10px;
+  }
+  .check-pay-form-group{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box; border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+
+
+.check-price{
+    font-size: 14px;
+}
+.check-subtotal-label,
+.check-delivery-label,
+.check-total-label {
+  font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+    .check-checkout-layout {
+        flex-direction: column; 
+        margin-top: 10px; 
+    }
+
+    .check-billing-section {
+        margin-right: 0; 
+        margin-bottom: 20px; 
+    }
+
+    .check-billing-title,
+    .check-summary-title {
+        font-size: 16px; 
+    }
+
+    .check-submit-btn {
+        font-size: 0.9rem; 
+    }
+
+    .check-cart-items-p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .check-checkout-page {
+        padding: 10px; 
+    }
+
+    .check-form-group {
+        margin-bottom: 10px; 
+    }
+
+    label {
+        font-size: 14px; 
+    }
+
+    input, textarea {
+        padding: 8px; 
+        font-size: 14px; 
+    }
+
+    .check-submit-btn {
+        padding: 8px; 
+        font-size: 0.9rem;
+    }
+
+    .check-order-summary-table th,
+    .check-order-summary-table td {
+        padding: 8px; 
+    }
+}

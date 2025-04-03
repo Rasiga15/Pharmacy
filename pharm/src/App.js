@@ -26,6 +26,8 @@ import Wishlist from "./components/Whislist/Whislist";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Scroll from "./components/Scroll/Scroll"; 
+import Checkout from "./components/Checkout/Checkout";
+import Order from "./components/Order/Order";
 
 function App() {
   const [cart, setCart] = useState(() => {
@@ -66,9 +68,11 @@ function App() {
           <Route path="product" element={<><ProductBanner/><ProductDetail/><ProductArrivals/></>} />
           <Route path="/product/:id" element={<ProductDetailView addToCart={addToCart} />} />
           <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="cart" element={<><Cart /></>} />
-          <Route path="/login" element={<><Login/></>} />
-          <Route path="/register" element={<><Register/></>} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/order" element={<Order />} /> {/* Fixed: Use element prop */}
         </Routes>
         <Scroll /> 
       </div>

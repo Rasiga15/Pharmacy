@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom'; 
 import "../Cart/Cart.css";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [deletingItemId, setDeletingItemId] = useState(null);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
@@ -54,7 +56,6 @@ const Cart = () => {
       <div className="cart-container">
         <h2 className="cart-h2">Your Cart</h2>
         <div className="cart-layout">
-         
           <div className="cart-items">
             {cartItems.length === 0 ? (
               <p className="cart-items-p">No Items In Cart.</p>
@@ -130,7 +131,7 @@ const Cart = () => {
                   </tr>
                 </tbody>
               </table>
-              <button className="checkout-btn">Go to Checkout →</button>
+              <button className="checkout-btn" onClick={() => navigate('/checkout')}>Go to Checkout →</button>
             </div>
           )}
         </div>
