@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,} from "react-router-dom";
 import Navbar from "./components/navbar"; 
 import Footer from "./components/footer";
 import "./App.css";
@@ -28,18 +28,31 @@ import Register from "./components/Register/Register";
 import Scroll from "./components/Scroll/Scroll"; 
 import Checkout from "./components/Checkout/Checkout";
 import Order from "./components/Order/Order";
+import Search from "./components/Search/Search";
+// import Loading from "./components/Loading/Loading";
 
 function App() {
+ 
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem("cart");
     return savedCart ? JSON.parse(savedCart) : [];
   });
+
+  const [loggedInUser, setLoggedInUser] = useState(
+    () => JSON.parse(localStorage.getItem("loggedInUser")) || null
+  );
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
   const addToCart = (product) => {
+    if (!loggedInUser) {
+      alert("Please log in to add items to the cart.");
+     
+      return;
+    }
+
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
       if (existingItem) {
@@ -56,6 +69,8 @@ function App() {
     alert(`${product.name} added to cart!`);
   };
 
+  
+
   return (
     <Router>
       <div>
@@ -69,10 +84,11 @@ function App() {
           <Route path="/product/:id" element={<ProductDetailView addToCart={addToCart} />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="cart" element={<Cart />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setLoggedInUser={setLoggedInUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/order" element={<Order />} /> {/* Fixed: Use element prop */}
+          <Route path="/order" element={<Order />} /> 
+          <Route path="/search" element={<Search/>}/>
         </Routes>
         <Scroll /> 
       </div>

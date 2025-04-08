@@ -6,7 +6,9 @@
   height: 750px;
   overflow: hidden; 
 }
-
+.shop-link{
+text-decoration: none;
+}
 
 .hero-image {
   position: absolute;   

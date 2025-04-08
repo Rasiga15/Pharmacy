@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate, useLocation } from 'react-router-dom'; 
 import "../Checkout/Checkout.css"; 
 
 const Checkout = () => {
+  const location = useLocation();
   const navigate = useNavigate();
+  
+  // Capture the product details passed from ProductDetailView
+  const productFromDetail = location.state?.product || null;
+
   const [cartItems, setCartItems] = useState([]);
   const [billingDetails, setBillingDetails] = useState({
     name: "",
@@ -23,14 +28,25 @@ const Checkout = () => {
     if (storedCart) {
       setCartItems(JSON.parse(storedCart));
     }
-  }, []);
+    // if product comes from location, add it to cartItems
+    if (productFromDetail) {
+      setCartItems((prevItems) => {
+        const itemExists = prevItems.find(item => item.id === productFromDetail.id);
+        if (!itemExists) {
+          // You may want to set a default quantity for new items added
+          return [...prevItems, { ...productFromDetail, quantity: 1 }];
+        }
+        return prevItems;
+      });
+    }
+  }, [productFromDetail]);
 
   const subtotal = cartItems.reduce(
     (acc, item) => acc + parseFloat(item.price.replace("₹", "")) * item.quantity,
     0
   );
 
-  const deliveryFee = 15;
+  const deliveryFee = 15; 
   const total = subtotal + deliveryFee;
 
   const handleChange = (e) => {
@@ -54,8 +70,16 @@ const Checkout = () => {
     console.log('Billing details submitted:', billingDetails);
     console.log('Payment details submitted:', paymentDetails);
 
-   
-    navigate('/order', { state: { billingDetails, paymentDetails, cartItems, subtotal, deliveryFee, total } });
+    navigate('/order', { 
+      state: { 
+        billingDetails, 
+        paymentDetails, 
+        cartItems, 
+        subtotal, 
+        deliveryFee, 
+        total 
+      } 
+    });
   };
 
   return (
@@ -70,31 +94,72 @@ const Checkout = () => {
             <form onSubmit={handleSubmit} className="check-billing-form">
               <div className="check-form-group">
                 <label htmlFor="name">Full Name:</label>
-                <input type="text" name="name" value={billingDetails.name} onChange={handleChange} required />
+                <input 
+                  type="text" 
+                  name="name" 
+                  value={billingDetails.name} 
+                  onChange={handleChange} 
+                  required 
+                />
               </div>
               <div className="check-form-group">
                 <label htmlFor="email">Email:</label>
-                <input type="email" name="email" value={billingDetails.email} onChange={handleChange} required />
+                <input 
+                  type="email" 
+                  name="email" 
+                  value={billingDetails.email} 
+                  onChange={handleChange} 
+                  required 
+                />
               </div>
               <div className="check-form-group">
                 <label htmlFor="address">Address:</label>
-                <textarea name="address" value={billingDetails.address} onChange={handleChange} required />
+                <textarea 
+                  name="address" 
+                  value={billingDetails.address} 
+                  onChange={handleChange} 
+                  required 
+                />
               </div>
               <div className="check-form-group">
                 <label htmlFor="city">City:</label>
-                <input type="text" name="city" value={billingDetails.city} onChange={handleChange} required />
+                <input 
+                  type="text" 
+                  name="city" 
+                  value={billingDetails.city} 
+                  onChange={handleChange} 
+                  required 
+                />
               </div>
               <div className="check-form-group">
                 <label htmlFor="zip">Zip/Postal Code:</label>
-                <input type="text" name="zip" value={billingDetails.zip} onChange={handleChange} required />
+                <input 
+                  type="text" 
+                  name="zip" 
+                  value={billingDetails.zip} 
+                  onChange={handleChange} 
+                  required 
+                />
               </div>
               <div className="check-form-group">
                 <label htmlFor="country">Country:</label>
-                <input type="text" name="country" value={billingDetails.country} onChange={handleChange} required />
+                <input 
+                  type="text" 
+                  name="country" 
+                  value={billingDetails.country} 
+                  onChange={handleChange} 
+                  required 
+                />
               </div>
               <div className="check-form-group">
                 <label htmlFor="phone">Phone Number:</label>
-                <input type="tel" name="phone" value={billingDetails.phone} onChange={handleChange} required />
+                <input 
+                  type="tel" 
+                  name="phone" 
+                  value={billingDetails.phone} 
+                  onChange={handleChange} 
+                  required 
+                />
               </div>
               <h3 className="check-payment-title">Payment Options</h3>
               <div className="check-pay-form-group">

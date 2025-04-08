@@ -28,6 +28,10 @@ const HomeHealth = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useState([]);
   const [quantities, setQuantities] = useState({});
+  const [wishlist, setWishlist] = useState([]);
+
+
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem('cart'));
@@ -39,14 +43,24 @@ const HomeHealth = () => {
       }, {});
       setQuantities(initialQuantities);
     }
+
+    const storedWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    setWishlist(storedWishlist);
   }, []);
 
   const addToCart = (product, event) => {
     event.stopPropagation();
+
+    if (!loggedInUser) {
+      alert("Please log in to add items to the cart.");
+      navigate('/login'); 
+      return;
+    }
+
     if (quantities[product.id] < 10 || quantities[product.id] === undefined) {
       const newCart = [...cart];
       const existingItem = newCart.find((item) => item.id === product.id);
-      
+
       if (existingItem) {
         existingItem.quantity = Math.min(existingItem.quantity + 1, 10);
       } else {
@@ -61,6 +75,31 @@ const HomeHealth = () => {
     } else {
       alert("You cannot add more than 10 of this product.");
     }
+  };
+
+  const goToWishlist = (product, event) => {
+    event.stopPropagation();
+
+    if (!loggedInUser) {
+      alert("Please log in to add items to your wishlist.");
+      navigate('/login'); 
+      return;
+    }
+
+    let updatedWishlist = [...wishlist];
+
+    const exists = updatedWishlist.find((item) => item.id === product.id);
+
+    if (!exists) {
+      updatedWishlist.push(product);
+      setWishlist(updatedWishlist);
+      localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+      alert(`${product.name} added to wishlist!`);
+    } else {
+      alert("This product is already in the wishlist!");
+    }
+    
+    navigate('/wishlist'); 
   };
 
   const updateQuantity = (id, increment, event) => {
@@ -80,33 +119,6 @@ const HomeHealth = () => {
     setCart(newCart);
     localStorage.setItem('cart', JSON.stringify(newCart));
   };
-
-  const [wishlist, setWishlist] = useState([]);
-
-  useEffect(() => {
-      const storedWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-      setWishlist(storedWishlist);
-  }, []);
-  
-  const goToWishlist = (product, event) => {
-      event.stopPropagation();
-  
-      let updatedWishlist = [...wishlist];
-  
-      const exists = updatedWishlist.find((item) => item.id === product.id);
-  
-      if (!exists) {
-          updatedWishlist.push(product);
-          setWishlist(updatedWishlist);
-          localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
-          alert(`${product.name} added to wishlist!`);
-      } else {
-          alert("This product is already in the wishlist!");
-      }
-  
-      navigate('/wishlist'); 
-  };
-  
 
   return (
     <div className="health-care-container">

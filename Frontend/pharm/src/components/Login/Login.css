@@ -11,6 +11,10 @@
     text-align: center;
     margin-bottom: 20px;
 }
+.model-h3{
+    text-align: center;
+    margin-bottom: 30px;
+}
 .log-form-group {
     margin-bottom: 15px;
 }
@@ -88,4 +92,77 @@
 
 .login-link-container a:hover {
     text-decoration: underline; 
+}
+
+.modal {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+}
+
+.modal-content {
+    background-color: #fff; 
+    border: 1px solid #ccc;
+    padding: 40px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    width: 400px; 
+    max-width: 90%;
+}
+
+.modal-form-group {
+    margin-bottom: 15px; 
+}
+
+.modal-form-group label {
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: bold; 
+}
+
+.modal-form-group input {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+}
+
+.reset-button {
+    background-color: #0f1a3b; 
+    color: white; 
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 4px; 
+    font-weight: 600;
+    cursor: pointer; 
+    font-size: 14px; 
+    transition: background-color 0.3s; 
+}
+
+.reset-button:hover {
+    background-color: #5873c7; 
+}
+
+.cancel-button {
+    background-color: #ccc; 
+    color: black;
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 14px; 
+    font-weight: 600;
+    margin-left: 10px; 
+    transition: background-color 0.3s; 
+}
+
+.cancel-button:hover {
+    background-color: #999; 
 }

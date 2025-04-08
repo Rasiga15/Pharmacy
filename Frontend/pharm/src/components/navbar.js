@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { HiShoppingCart, HiHeart, HiUser } from "react-icons/hi"; 
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";  
 import "./navbar.css";
 
 const Navbar = () => {
+    const navigate = useNavigate();
     const location = useLocation();
     const [scrolling, setScrolling] = useState(false);
     const [showProfileMenu, setShowProfileMenu] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,6 +24,12 @@ const Navbar = () => {
         };
     }, []);
 
+    const handleLogout = () => {
+        localStorage.removeItem('loggedInUser'); 
+        alert('Logout successful!'); 
+        navigate('/'); 
+    };
+
     const navbarStyle = {
         background: location.pathname === "/" && !scrolling ? "none" : "#142257",
         transition: "background 0.3s ease-in-out",
@@ -29,19 +38,16 @@ const Navbar = () => {
     return (
         <nav className="nav-container" style={navbarStyle}>
             <div className="nav-content">
-               
                 <div className="logo">
                     <Link to="/">
                         <img src="/images/logo.png" alt="Logo" />
                     </Link>
                 </div>
 
-              
                 <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
                     {menuOpen ? <HiOutlineX size={30} /> : <HiOutlineMenu size={30} />}
                 </div>
 
-           
                 <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
                     <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
                     <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
@@ -64,12 +70,19 @@ const Navbar = () => {
                     </div>
                     <div className="profile-icon" onClick={() => setShowProfileMenu(!showProfileMenu)}>
                         <HiUser size={24} className="icon" />
+                        {loggedInUser && <span className="username">{loggedInUser.username}</span>} 
                     </div>
                     
                     {showProfileMenu && (
                         <div className="profile-menu">
-                            <Link to="/login" onClick={() => setShowProfileMenu(false)}>Login</Link>
-                            <Link to="/register" onClick={() => setShowProfileMenu(false)}>Register</Link>
+                            {!loggedInUser ? (
+                                <>
+                                    <Link to="/login" onClick={() => setShowProfileMenu(false)}>Login</Link>
+                                    <Link to="/register" onClick={() => setShowProfileMenu(false)}>Register</Link>
+                                </>
+                            ) : (
+                                <Link to="/" onClick={() => { handleLogout(); setShowProfileMenu(false); }}>Logout</Link>
+                            )}
                         </div>
                     )}
                 </div>

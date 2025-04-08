@@ -44,7 +44,9 @@ const ProductDetail = () => {
   
   const navigate = useNavigate();
 
- 
+
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem('cart'));
     if (storedCart) {
@@ -63,17 +65,23 @@ const ProductDetail = () => {
 
   const addToCart = (product, event) => {
     event.stopPropagation();
+
+    if (!loggedInUser) {
+      alert("Please log in to add items to the cart.");
+      navigate('/login'); 
+      return;
+    }
+
     const newCart = [...cart];
     const existingItem = newCart.find((item) => item.id === product.id);
 
     if ((quantities[product.id] || 0) < 10) {
       if (existingItem) {
-        existingItem.quantity = Math.min(existingItem.quantity + 1, 10); // Cap at 10
+        existingItem.quantity = Math.min(existingItem.quantity + 1, 10); 
       } else {
         newCart.push({ ...product, quantity: 1 });
       }
 
-     
       setCart(newCart);
       const newQuantities = { ...quantities, [product.id]: (quantities[product.id] || 0) + 1 };
       setQuantities(newQuantities);
@@ -85,7 +93,6 @@ const ProductDetail = () => {
     }
   };
 
- 
   useEffect(() => {
     const storedWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
     setWishlist(storedWishlist);
@@ -93,9 +100,15 @@ const ProductDetail = () => {
   
   const toggleWishlist = (product, event) => {
     event.stopPropagation();
+
+    if (!loggedInUser) {
+      alert("Please log in to add items to your wishlist.");
+      navigate('/login'); 
+      return;
+    }
+
     let updatedWishlist = [...wishlist];
 
-   
     const exists = updatedWishlist.find((item) => item.id === product.id);
 
     if (!exists) {
@@ -106,7 +119,7 @@ const ProductDetail = () => {
     } else {
       alert("This product is already in the wishlist!");
     }
-
+                                                                                                             
     navigate('/wishlist'); 
   };
 

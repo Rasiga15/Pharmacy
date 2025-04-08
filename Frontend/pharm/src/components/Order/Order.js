@@ -52,7 +52,7 @@ const Order = () => {
 
           <div className="order-main-pay">
             <h3 className="order-p-pay">Payment Method</h3>
-            <p className="payment-method">{paymentDetails.paymentMethod === "onlinePayment" ? "Online Payment" : "Cash on Delivery"}</p>
+            <p className="order-payment-method">{paymentDetails.paymentMethod === "onlinePayment" ? "Online Payment" : "Cash on Delivery"}</p>
           </div>
         </div>
 
